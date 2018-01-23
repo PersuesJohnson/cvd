@@ -1,0 +1,9 @@
+本文档对应于人工智能导论第二次大作业的猫狗识别。模型采用PyTorch框架在Python 3.5下可以正常运行，同时需要torchivision和opencv进行外部库的辅助。如果助教没有安装PyTorch的话，强烈建议助教安装Anaconda后按照pytorch.org上的命令进行安装。
+
+在一切准备就绪后，整个模型的运行顺序如下：
+
+1、将所有图片放入models/data文件夹下，图片需要按照提供的数据集的命名规则进行命名（即在文件名中直接标记cat和dog关键字）；
+
+2、命令行中运行python3 dataset_prepare.py，进行图片的预处理，并保存成为numpy形式；
+
+3、在上述进程结束后，根据显卡显存大小修改configs/test_config.yaml中的内容，我测试时候使用的是12G显存的K80，可以设定Batchsize为20，助教请根据您的显存大小对于batchsize和eval_batchSize进行调整（两者调整到相同数值即可）。之后直接运行python3 evaluation.py即可得到最终的准确率。
